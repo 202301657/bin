@@ -1,0 +1,24 @@
+#!/usr/bin/bash
+
+pin1=2
+pin2=17
+pin3=10
+
+while true; do
+    for i in {0..7}; do
+	pinctrl set $pin1 dl
+	pinctrl set $pin2 dl
+	pinctrl set $pin3 dl
+	if (( (i/1)%2 )); then
+	    pinctrl set $pin1 dh
+	fi
+	if (( (i/2)%2 )); then	    
+	    pinctrl set $pin2 dh
+	fi
+	if (( (i/4)%2 )); then
+	    pinctrl set $pin3 dh
+	fi
+	sleep 1
+    done
+done
+
