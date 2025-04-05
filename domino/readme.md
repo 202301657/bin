@@ -26,7 +26,8 @@
 --- 
 ## 하드웨어
 직접 연결한 회로도 사진입니다. 
-![회로도1](count/image1/회로도1.jpg)
+![GPIO](domino/image1/GPIO.jpg)
+![회로도1](domino/image1/회로도1.jpg)
 
 | LED 순서 | 핀 번호 |
 |----------|---------|
