@@ -7,7 +7,7 @@
 
 ## 과제 설명
 
-![missionC](image2/missonC.png)
+![missionB](image2/missionB.png)
 
 - 첫 번째 LED 1초마다 깜빡임
 - 두 번째 LED 2초마다 깜빡임 
@@ -27,7 +27,7 @@
 
 아래 사진을 클릭하면 동작이 시연되는 것을 확인해볼 수 있습니다.
 
-[![시연과 설명 영상1](image/thumnail2.jpg)](https://www.youtube.com/watch?v=qqGw-CTZCQk)
+[![시연과 설명 영상2](image2/5주차2.jpg)](https://www.youtube.com/watch?v=edoUWzwg5vY)
 
 --- 
 ## 하드웨어
@@ -47,36 +47,6 @@
 ---
 
 ## 소프트웨어
-
-### 명령어 정리
-디렉토리, 파일 관련련
-- ls : 현재 디렉토리에 있는 디렉토리와 파일 목록을 보여줌.
-- mkdir count : domino라는 디렉토리 만듦. 
-- cd count/ : domino 디렉토리로 이동 
-- touch count8 : count8 파일을 만듦.  
-- nano count8 : count8 파일 내용 편집 (다른 편집기를 사용해도 좋음.) 
-    - 아래에 있는 bash코드 확인 
-- cat count8 : 터미널에서 파일 내용 확인 가능함. 
-- ls -l : 읽기, 쓰기, 실행권한 여부를 보여줌. (여기서는 실행 권한이 있는지 확인하기 위해 쓰임.)
-- source ~/.profile : 어느 디렉토리에 있든 찾는 파일을 실행시킬 수 있음.
-- which count8 : count8 파일의 위치를 알려줌. 
-- count8 : count8 코드 실행.
-
-GPIO 관련 
-- pinctrl -p get : 현재 모든 GPIO 핀의 상태를 출력
-- pinctrl set 핀 번호 __ 
-    - ex : pinctrl set 2 op    
-
-    | 필드(__)	| 의미 |    
-    |-------|--------|    
-    | ip  | 입력(Input) 모드 |   
-    | op  | 출력(Output) 모드 |
-    | pu  | Pull-up |
-    | pd  | Pull-down |
-    | dh  | 출력 상태가 High (1) |
-    | dl  | 출력 상태가 Low (0)  |
-    | no  | 미설정(Not used) 상태  |
-
 
 ```bash
 #!/usr/bin/bash
@@ -111,6 +81,37 @@ while true; do # 무한 반복
     done
 done
 ```
+
+### 명령어 정리
+디렉토리, 파일 관련
+- ls : 현재 디렉토리에 있는 디렉토리와 파일 목록을 보여줌.
+- mkdir count : count라는 디렉토리 만듦. 
+- cd count/ : count 디렉토리로 이동 
+- touch count8 : count8 파일을 만듦.  
+- nano count8 : count8 파일 내용 편집 (다른 편집기를 사용해도 좋음.) 
+    - 위에 있는 bash코드 작성 
+- cat count8 : 터미널에서 파일 내용 확인 가능함. 
+- ls -l : 읽기, 쓰기, 실행권한 여부를 보여줌. (여기서는 실행 권한이 있는지 확인하기 위해 쓰임.)    
+    - rwx
+- source ~/.profile : 현재 쉘 세션에서 ~/.profile 파일을 다시 실행하도록 함.
+- which count8 : count8 파일의 위치를 알려줌. 
+- ./bin/count/count8  : count8 코드 실행.
+
+GPIO 관련 
+- pinctrl -p get : 현재 모든 GPIO 핀의 상태를 출력
+- pinctrl set 핀 번호 __ 
+    - ex : pinctrl set 2 op    
+
+    | 필드(__)	| 의미 |    
+    |-------|--------|    
+    | ip  | 입력(Input) 모드 |   
+    | op  | 출력(Output) 모드 |
+    | pu  | Pull-up |
+    | pd  | Pull-down |
+    | dh  | 출력 상태가 High (1) |
+    | dl  | 출력 상태가 Low (0)  |
+    | no  | 미설정(Not used) 상태  |
+
 ___
 ## 주의 & 참고 사항
 

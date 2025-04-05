@@ -5,6 +5,7 @@ pin2=17
 pin3=10
 pin4=11
 
+# 각 핀을 출력 모드(op)로 설정
 pinctrl set $pin1 op
 pinctrl set $pin2 op
 pinctrl set $pin3 op

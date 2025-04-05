@@ -22,11 +22,12 @@
 
 아래 사진을 클릭하면 동작이 시연되는 것을 확인해볼 수 있습니다.
 
-[![시연과 설명 영상1](image1/5주차1.jpg)](https://www.youtube.com/watch?v=qqGw-CTZCQk)
+[![시연과 설명 영상1](image1/5주차1.jpg)](https://www.youtube.com/watch?v=owaUdgGs-cA)
 
 --- 
 ## 하드웨어
 직접 연결한 회로도 사진입니다. 
+![GPIO](image1/GPIO.jpg)
 ![회로도1](image1/회로도1.jpg)
 
 | LED 순서 | 핀 번호 |
@@ -39,35 +40,6 @@
 ---
 
 ## 소프트웨어
-### 명령어 정리
-디렉토리, 파일 관련련
-- ls : 현재 디렉토리에 있는 디렉토리와 파일 목록을 보여줌.
-- mkdir domino : domino라는 디렉토리 만듦. 
-- cd domino/ : domino 디렉토리로 이동 
-- touch domino4 : domino4 파일을 만듦.  
-- nano domino4 : domino4 파일 내용 편집 (다른 편집기를 사용해도 좋음.) 
-    - 아래에 있는 bash코드 확인 
-- cat domino4 : 터미널에서 파일 내용 확인 가능함. 
-- ls -l : 읽기, 쓰기, 실행권한 여부를 보여줌. (여기서는 실행 권한이 있는지 확인하기 위해 쓰임.)
-- source ~/.profile : 어느 디렉토리에 있든 찾는 파일을 실행시킬 수 있음.
-- which domino4 : domino4 파일의 위치를 알려줌. 
-- domino4 : domino4 코드 실행.
-
-GPIO 관련 
-- pinctrl -p get : 현재 모든 GPIO 핀의 상태를 출력
-- pinctrl set 핀 번호 __ 
-    - ex : pinctrl set 2 op    
-
-    | 필드(__)	| 의미 |    
-    |-------|--------|    
-    | ip  | 입력(Input) 모드 |   
-    | op  | 출력(Output) 모드 |
-    | pu  | Pull-up |
-    | pd  | Pull-down |
-    | dh  | 출력 상태가 High (1) |
-    | dl  | 출력 상태가 Low (0)  |
-    | no  | 미설정(Not used) 상태  |
-
 
 ```bash
 #!/usr/bin/bash
@@ -98,7 +70,38 @@ while true; do
     pinctrl set $pin4 dl # 네 번째 LED 끔(low)
 done
 ```
+
+### 명령어 정리
+디렉토리, 파일 관련련
+- ls : 현재 디렉토리에 있는 디렉토리와 파일 목록을 보여줌.
+- mkdir domino : domino라는 디렉토리 만듦. 
+- cd domino/ : domino 디렉토리로 이동 
+- touch domino4 : domino4 파일을 만듦.  
+- nano domino4 : domino4 파일 내용 편집 (다른 편집기를 사용해도 좋음.) 
+    - 위에 있는 bash코드 작성 
+- cat domino4 : 터미널에서 파일 내용 확인 가능함. 
+- ls -l : 읽기, 쓰기, 실행권한 여부를 보여줌. (여기서는 실행 권한이 있는지 확인하기 위해 쓰임.)
+- source ~/.profile : 현재 쉘 세션에서 ~/.profile 파일을 다시 실행하도록 함.
+- which domino4 : domino4 파일의 위치를 알려줌. 
+- domino4 : domino4 코드 실행.
+
+GPIO 관련 
+- pinctrl -p get : 현재 모든 GPIO 핀의 상태를 출력
+- pinctrl set 핀 번호 __ 
+    - ex : pinctrl set 2 op    
+
+    | 필드(__)	| 의미 |    
+    |-------|--------|    
+    | ip  | 입력(Input) 모드 |   
+    | op  | 출력(Output) 모드 |
+    | pu  | Pull-up |
+    | pd  | Pull-down |
+    | dh  | 출력 상태가 High (1) |
+    | dl  | 출력 상태가 Low (0)  |
+    | no  | 미설정(Not used) 상태  |
+
 ___
 ## 주의 & 참고 사항
 
 - GPIO 핀에서 0번과 1번은 아두이노와 연결할 때 쓰이며 일반적인 GPIO 용도로는 사용되지 않습니다. 
+- 코드의 첫 번째 줄에 있는 #!/usr/bin/bash는 쉬뱅(Shebang)라인으로 스크립트 파일을 실행할 때, 어떤 프로그램(해석기, 인터프리터) 로 실행할지 지정하는 역할을 합니다. 
