@@ -7,7 +7,7 @@
 
 ## 과제 설명
 
-![missionA](domino/image1/missionA.png)
+![missionA](domino\image1\missionA.png)
 
 1. domino 폴더 만들기
 2. domino 폴더 안에 domino4라는 source파일 만들기
@@ -26,8 +26,8 @@
 --- 
 ## 하드웨어
 직접 연결한 회로도 사진입니다. 
-![GPIO](domino/image1/GPIO.jpg)
-![회로도1](domino/image1/회로도1.jpg)
+![GPIO](domino\image1\GPIO.jpg)
+![회로도1](domino\image1\회로도1.jpg)
 
 | LED 순서 | 핀 번호 |
 |----------|---------|
