@@ -5,17 +5,23 @@ pin2=17
 pin3=10
 pin4=11
 
-while true; do
-    pinctrl set $pin1 dh
+pinctrl set $pin1 op
+pinctrl set $pin2 op
+pinctrl set $pin3 op
+pinctrl set $pin4 op
+
+while true; do 
+    pinctrl set $pin1 dh 
+    sleep 1 
+    pinctrl set $pin1 dl 
+    pinctrl set $pin2 dh 
+    sleep 1 
+    pinctrl set $pin2 dl 
+    pinctrl set $pin3 dh 
     sleep 1
-    pinctrl set $pin1 dl
-    pinctrl set $pin2 dh
+    pinctrl set $pin3 dl 
+    pinctrl set $pin4 dh 
     sleep 1
-    pinctrl set $pin2 dl
-    pinctrl set $pin3 dh
-    sleep 1
-    pinctrl set $pin3 dl
-    pinctrl set $pin4 dh
-    sleep 1
-    pinctrl set $pin4 dl
+    pinctrl set $pin4 dl 
 done
+
