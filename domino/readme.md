@@ -7,7 +7,9 @@
 
 ## 과제 설명
 
-![missionA](domino/image1/missionA.png)
+![missionA](image1/missionA.png)
+
+각 LED가 도미노처럼 순서대로 켜지고 꺼짐
 
 1. domino 폴더 만들기
 2. domino 폴더 안에 domino4라는 source파일 만들기
@@ -16,17 +18,22 @@
 5. 브레드 보드에 점퍼선, LED, 저항을 사용하여 회로 구성하기 
 6. domino4 파일 실행 권한 주기
 7. domino4 파일 실행하기 
+
 ---
 ## 동작 시연 영상
 
 아래 사진을 클릭하면 동작이 시연되는 것을 확인해볼 수 있습니다.
 
-[![시연과 설명 영상1](image/thumnail2.jpg)](https://www.youtube.com/watch?v=qqGw-CTZCQk)
+[![시연과 설명 영상1](image1/5주차1.jpg)](https://www.youtube.com/watch?v=qqGw-CTZCQk)
 
 --- 
 ## 하드웨어
 직접 연결한 회로도 사진입니다. 
-![회로도1](count/image1/회로도1.jpg)
+![GPIO](image1/GPIO.jpg)
+![회로도1](image1/회로도1.jpg)
+![핀맵](image1/pinmap.png)
+
+핀 번호는 제 마음대로 배정하였습니다. (0, 1번 핀 제외)
 
 | LED 순서 | 핀 번호 |
 |----------|---------|
@@ -83,21 +90,22 @@ pinctrl set $pin3 op
 pinctrl set $pin4 op
 
 while true; do
-    pinctrl set $pin1 dh # 첫 번째 LED 켬
+    pinctrl set $pin1 dh # 첫 번째 LED 켬(high)
     sleep 1 # 1초 유지
-    pinctrl set $pin1 dl # 첫 번째 LED 끔
-    pinctrl set $pin2 dh # 두 번째 LED 켬
+    pinctrl set $pin1 dl # 첫 번째 LED 끔(low)
+    pinctrl set $pin2 dh # 두 번째 LED 켬(high)
     sleep 1 # 1초 유지
-    pinctrl set $pin2 dl # 두 번째 LED 끔
-    pinctrl set $pin3 dh # 세 번째 LED 켬
+    pinctrl set $pin2 dl # 두 번째 LED 끔(low)
+    pinctrl set $pin3 dh # 세 번째 LED 켬(high)
     sleep 1 # 1초 유지
-    pinctrl set $pin3 dl # 세 번째 LED 끔
-    pinctrl set $pin4 dh # 네 번째 LED 켬
+    pinctrl set $pin3 dl # 세 번째 LED 끔(low)
+    pinctrl set $pin4 dh # 네 번째 LED 켬(high)
     sleep 1 # 1초 유지
-    pinctrl set $pin4 dl # 네 번째 LED 끔
+    pinctrl set $pin4 dl # 네 번째 LED 끔(low)
 done
 ```
 ___
 ## 주의 & 참고 사항
 
 - GPIO 핀에서 0번과 1번은 아두이노와 연결할 때 쓰이며 일반적인 GPIO 용도로는 사용되지 않습니다. 
+- 코드의 첫 번째 줄에 있는 #!/usr/bin/bash는 쉬뱅(Shebang)라인으로 스크립트 파일을 실행할 때, 어떤 프로그램(해석기, 인터프리터) 로 실행할지 지정하는 역할을 합니다. 
